@@ -7,7 +7,7 @@ Based on research paper fuzzy model with 9 input variables and 10 disease output
 import numpy as np
 import skfuzzy as fuzz
 from skfuzzy import control as ctrl
-from disease_knowledge import FUZZY_RULES, get_all_diseases
+from knowledge.disease_knowledge import FUZZY_RULES, get_all_diseases
 
 
 def create_input_variables():

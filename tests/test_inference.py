@@ -2,7 +2,7 @@
 Quick test to verify fuzzy inference is working
 """
 
-from fuzzy_system import (
+from  core.fuzzy_system import (
     create_input_variables,
     create_output_variables,
     create_fuzzy_rules,

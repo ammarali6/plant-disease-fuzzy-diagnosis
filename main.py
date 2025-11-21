@@ -10,7 +10,7 @@ Based on: Research paper on chilli crop diseases
 import gradio as gr
 import numpy as np
 import matplotlib.pyplot as plt
-from fuzzy_system import (
+from knowledge.fuzzy_system import (
     create_input_variables,
     create_output_variables,
     create_fuzzy_rules,
@@ -20,8 +20,8 @@ from fuzzy_system import (
     get_risk_color,
     explain_diagnosis
 )
-from disease_knowledge import get_disease_info, FUZZY_RULES, get_all_diseases
-from visualizations import (
+from knowledge.disease_knowledge import get_disease_info, FUZZY_RULES, get_all_diseases
+from ui.visualizations import (
     plot_input_membership_functions,
     plot_output_membership_functions,
     plot_disease_comparison,
@@ -414,75 +414,6 @@ with gr.Blocks(
         with gr.Tab("📋 Rule Base"):
             gr.Markdown("### Complete Fuzzy Rule Base")
             rules_display = gr.HTML(value=show_rule_base())
-        
-        # Tab 4: About
-        with gr.Tab("ℹ️ About"):
-            gr.Markdown(
-                f"""
-                ## About This System
-                
-                ### 🎯 Purpose
-                This fuzzy logic expert system diagnoses plant diseases in chilli crops based on environmental 
-                conditions and plant health indicators. It implements a knowledge base derived from scientific 
-                research on plant pathology.
-                
-                ### 🧠 Methodology
-                - **Inference Engine:** Mamdani Fuzzy Inference System
-                - **Defuzzification:** Centroid method
-                - **Membership Functions:** Triangular (trimf)
-                - **Input Variables:** 9 (environmental and plant factors)
-                - **Output Variables:** 10 diseases with risk levels
-                - **Rule Base:** 30 fuzzy rules
-                
-                ### 📊 Input Variables
-                1. **Temperature** (10-40°C): Ambient temperature
-                2. **Relative Humidity** (10-100%): Air moisture level
-                3. **Rainfall** (0-200mm): Precipitation amount
-                4. **Leaf Wetness** (0-24h): Duration leaves stay wet
-                5. **Soil Moisture** (0-100%): Soil water content
-                6. **Soil Drainage** (0-10): Drainage quality score
-                7. **Seed Health** (0-10): Quality of seed/seedlot
-                8. **Vector Pressure** (0-10): Insect vector population
-                9. **Crop Stage** (0-3): Growth phase
-                
-                ### 🦠 Diseases Diagnosed
-                1. **Anthracnose** (Fungal) - *Colletotrichum spp.*
-                2. **Powdery Mildew** (Fungal) - *Leveillula taurica*
-                3. **Fusarium Wilt** (Fungal) - *Fusarium oxysporum*
-                4. **Phytophthora** (Oomycete) - *Phytophthora capsici*
-                5. **Cercospora** (Fungal) - *Cercospora capsici*
-                6. **Bacterial Leaf Spot** (Bacterial) - *Xanthomonas campestris*
-                7. **Bacterial Wilt** (Bacterial) - *Ralstonia solanacearum*
-                8. **Viral Leaf Curl** (Viral) - *Begomovirus*
-                9. **Mosaic Viruses** (Viral) - *CMV, TMV, PepMoV*
-                10. **Nematodes** (Parasitic) - Root-knot nematodes
-                
-                ### 🎨 Color Scheme
-                - 🟢 **Green** ({COLORS['green']}): Low Risk
-                - ⚫ **Black** ({COLORS['black']}): Moderate Risk
-                - 🔴 **Red** ({COLORS['red']}): High Risk
-                - 🟤 **Brown** ({COLORS['brown']}): UI Accents
-                - ⚫ **Gunmetal** (#454545): Dark Gray Accent
-                
-                ### 📚 References
-                Based on research paper: "Major Diseases of Chilli Crop and Their Management" 
-                (International Journal of Biology and Biotechnology, 2011)
-                
-                ### 👨‍💻 Technology Stack
-                - **Python 3.9+**
-                - **scikit-fuzzy**: Fuzzy logic inference
-                - **Gradio**: User interface
-                - **Matplotlib**: Visualizations
-                - **NumPy**: Numerical computations
-                
-                ### ⚠️ Disclaimer
-                This system is for educational and research purposes. Always consult agricultural experts 
-                for professional disease management advice.
-                
-                ---
-                **Developed for:** Knowledge Representation and Reasoning Course Project
-                """
-            )
     
     gr.Markdown(
         """
