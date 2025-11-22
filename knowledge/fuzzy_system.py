@@ -267,7 +267,7 @@ def get_risk_color(risk_level):
     """
     colors = {
         'Low': '#81c14b',      # Green
-        'Moderate': '#000000',  # Black (neutral)
+        'Moderate': "#A4AD23",  # Black (neutral)
         'High': '#ff4b3e'       # Red
     }
     return colors.get(risk_level, '#000000')

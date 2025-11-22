@@ -105,7 +105,7 @@ def perform_diagnosis(temp, rh, rain, leafwet, soilm, drain, seedhealth, vector,
             <tr style="background-color: {'#f9f9f9' if rank % 2 == 0 else 'white'}; color: #000;">
                 <td style="padding: 10px; border: 1px solid #333; font-weight: bold; color: #000;">{rank}</td>
                 <td style="padding: 10px; border: 1px solid #333; font-weight: bold; color: #000;">{disease}</td>
-                <td style="padding: 10px; border: 1px solid #333; color: #000;"><i>{disease_type}</i></td>
+                <td style="padding: 10px; border: 1px solid #333; color: #000;">{disease_type}</td>
                 <td style="padding: 10px; border: 1px solid #333; text-align: center; font-weight: bold; color: #000;">{score:.3f}</td>
                 <td style="padding: 10px; border: 1px solid #333; text-align: center;">
                     <span style="background-color: {color}; color: {'white' if risk_level != 'Moderate' else COLORS['brown']}; 
@@ -208,7 +208,7 @@ def perform_diagnosis(temp, rh, rain, leafwet, soilm, drain, seedhealth, vector,
                 explanation_html += "</div>"
         
         explanation_html += """
-        <div style="margin-top: 20px; padding: 15px; background-color: #fff3cd; border-radius: 5px; border-left: 4px solid #856404;">
+        <div style="margin-top: 20px; padding: 15px; background-color: #000000; border-radius: 5px; border-left: 4px solid #856404;">
             <strong style="color: #856404;">💡 How to interpret:</strong>
             <ul style="margin: 10px 0; color: #856404; line-height: 1.8;">
                 <li><strong>Strength:</strong> Shows how strongly each rule condition was satisfied (0.0 = not satisfied, 1.0 = fully satisfied)</li>
@@ -288,7 +288,7 @@ def show_rule_base():
         risk_color = get_risk_color(rule['risk'])
         
         html += f"""
-        <div style="margin: 10px 0; padding: 10px; background-color: #f9f9f9; border-radius: 5px;">
+        <div style="margin: 10px 0; padding: 10px; background-color: #000000; border-radius: 5px;">
             <strong>Rule {rule['id']}:</strong><br>
             <span style="color: {COLORS['brown']};">IF</span> {conditions_str} 
             <span style="color: {COLORS['brown']};">THEN</span> 
@@ -307,7 +307,7 @@ def show_rule_base():
 def show_membership_params():
     """Show membership function parameters as text."""
     return f"""
-    <div style="font-family: monospace; background-color: {COLORS['brown']}; color: {COLORS['gunmetal']}; 
+    <div style="font-family: monospace; background-color: {COLORS['black']}; color: {COLORS['gunmetal']}; 
                 padding: 20px; border-radius: 10px; white-space: pre-wrap; max-height: 600px; overflow-y: auto;">
 {create_membership_summary_table()}
     </div>
